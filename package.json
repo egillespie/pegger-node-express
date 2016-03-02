@@ -1,0 +1,19 @@
+{
+  "name": "pegger-node-express",
+  "version": "1.0.0",
+  "description": "Pegger - Node.js and Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egillespie/pegger-node-express.git"
+  },
+  "author": "Erik Gillespie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/egillespie/pegger-node-express/issues"
+  },
+  "homepage": "https://github.com/egillespie/pegger-node-express#readme"
+}
