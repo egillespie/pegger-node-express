@@ -8,8 +8,8 @@ peggerControllers.controller('PeggerCtrl', ['$scope', 'games', function ($scope,
   
   var playerOne = {};
   var playerTwo = {};
-  initPlayer(playerOne, "One", playerTwo);
-  initPlayer(playerTwo, "Two", playerOne);
+  initPlayer(playerOne, 'One', playerTwo);
+  initPlayer(playerTwo, 'Two', playerOne);
   
   $scope.newGame = function() {
     $scope.selectedPeg = null;
@@ -84,25 +84,27 @@ peggerControllers.controller('PeggerCtrl', ['$scope', 'games', function ($scope,
             $scope.selectedPeg = null;
             switch (response.status) {
               case 400:
-              $scope.messageKey = 'pegs.notSelected.error';
-              break;
+                $scope.messageKey = 'pegs.notSelected.error';
+                break;
               case 404:
-              $scope.messageKey = 'games.notFound.error';
-              break;
+                $scope.messageKey = 'games.notFound.error';
+                break;
               case 409:
-              $scope.messageKey = 'pegs.conflict.error';
-              break;
+                $scope.messageKey = 'pegs.conflict.error';
+                break;
               case 422:
-              $scope.messageKey = 'pegs.user.error';
-              $scope.message = response.data.message;
-              break;
+                $scope.messageKey = 'pegs.user.error';
+                $scope.message = response.data.message;
+                break;
               default:
-              $scope.messageKey = 'pegs.put.error';
-              break;
+                $scope.messageKey = 'pegs.put.error';
+                break;
             }
           });
         }
       };
       
       $scope.newGame();
-    }]);
+    }
+  ]
+);

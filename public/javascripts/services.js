@@ -15,7 +15,7 @@ peggerServices.factory('games', ['$http', function($http) {
           byId: function(pegId) {
             return {
               put: function(data, success, error) {
-                return $http.put('/games/'+gameId+'/pegs/'+pegId, data).then(function(response) {
+                return $http.put('/games/' + gameId + '/pegs/' + pegId, data).then(function(response) {
                   success(response);
                 }, function(response) {
                   error(response);
