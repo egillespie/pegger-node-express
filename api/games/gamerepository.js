@@ -2,7 +2,7 @@
 var REPO = REPO || {};
 
 module.exports = {
-  nextGameId: function(callback) {
+  nextGameId: (callback) => {
     if (!REPO['gid']) {
       REPO['gid'] = 0;
     }
@@ -10,12 +10,20 @@ module.exports = {
     callback(null, REPO['gid']);
   },
   
-  save: function(game, callback) {
+  save: (game, callback) => {
     if (REPO[game.gameId]) {
       callback(new Error('Game ID ' + game.gameId + ' already exists.'));
     } else {
       REPO[game.gameId] = game;
       callback(null, game);
+    }
+  },
+  
+  getById: (gameId, callback) => {
+    if (REPO[gameId]) {
+      callback(null, REPO[gameId]);
+    } else {
+      callback(new Error('Game ID ' + gameId + ' does not exist.'));
     }
   }
 };
