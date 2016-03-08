@@ -15,8 +15,18 @@ router.post('/', (req, res, next) => {
 
 /* Move a peg. */
 router.put('/:gameId/pegs/:pegId', (req, res, next) => {
-  var gameId = req.params.gameId;
-  var pegId = req.params.pegId;
+  var gameId = parseInt(req.params.gameId, 10);
+  var pegId = parseInt(req.params.pegId);
+  var peg = req.body;
+  
+  if (!pegId) {
+    res.status(400).end();
+    return;
+  } else if (pegId !== peg.pegId) {
+    res.status(409).end();
+    return;
+  }
+  
   GameOperator.lookForGame(gameId, (err, game) => {
     if (err) {
       res.status(404).json(err);
