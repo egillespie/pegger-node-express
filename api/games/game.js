@@ -53,6 +53,7 @@ Game.movePeg = (game, peg) => {
   for (var i = 0; i < game.pegs.length; i++) {
     var oldPeg = game.pegs[i];
     if (oldPeg.pegId === peg.pegId) {
+      game.lastPegMoved = game.pegs[i];
       game.pegs[i] = peg;
       Game.calculateGameOver(game);
       return;
