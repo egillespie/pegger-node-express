@@ -7,6 +7,18 @@ with my toddler daughter and her peg-hammering toy.
 This is a port of the original [Pegger Java]() web app to Node.js and Express. You can use it
 to compare, contrast, and learn Node.js/Express or any of the other Pegger apps/tutorials.
 
+## Getting Started
+
+If you want to run Pegger locally, you'll need Node.js and NPM. With those installed, just
+run the following commands:
+
+```bash
+$ npm install
+$ npm start
+```
+
+Then visit http://localhost:3000 in your browser to get started!
+
 ## Rules to Play
 
 Pegger is a two-player turn-based strategy game that is played on a
