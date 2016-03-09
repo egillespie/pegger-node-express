@@ -13,6 +13,18 @@ router.post('/', (req, res, next) => {
   });
 });
 
+/* Get a game. */
+router.get('/:gameId', (req, res, next) => {
+  var gameId = parseInt(req.params.gameId, 10);
+  GameOperator.lookForGame(gameId, (err, game) => {
+    if (err) {
+      res.status(404).json(err);
+    } else {
+      res.json(game);
+    }
+  });
+});
+
 /* Move a peg. */
 router.put('/:gameId/pegs/:pegId', (req, res, next) => {
   var gameId = parseInt(req.params.gameId, 10);
