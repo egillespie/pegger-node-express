@@ -6,7 +6,7 @@ var GameOperator = require('./gameoperator.js');
 router.post('/', (req, res, next) => {
   GameOperator.startGame((err, game) => {
     if (err) {
-      res.status(500).json(err);
+      res.status(500).json({message: err.message});
     } else {
       res.status(201).location('/games/' + game.gameId).json(game);
     }
@@ -18,7 +18,7 @@ router.get('/:gameId', (req, res, next) => {
   var gameId = parseInt(req.params.gameId, 10);
   GameOperator.lookForGame(gameId, (err, game) => {
     if (err) {
-      res.status(404).json(err);
+      res.status(404).json({message: err.message});
     } else {
       res.json(game);
     }
@@ -38,11 +38,11 @@ router.put('/:gameId/pegs/:pegId', (req, res, next) => {
   } else {
     GameOperator.lookForGame(gameId, (err, game) => {
       if (err) {
-        res.status(404).json(err);
+        res.status(404).json({message: err.message});
       } else {
         GameOperator.movePeg(game, peg, (err, game) => {
           if (err) {
-            res.status(422).json(err);
+            res.status(422).json({message: err.message});
           } else {
             res.status(303).location('/games/' + game.gameId).end();
           }
