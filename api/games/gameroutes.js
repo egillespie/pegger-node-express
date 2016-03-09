@@ -16,24 +16,28 @@ router.post('/', (req, res, next) => {
 /* Move a peg. */
 router.put('/:gameId/pegs/:pegId', (req, res, next) => {
   var gameId = parseInt(req.params.gameId, 10);
-  var pegId = parseInt(req.params.pegId);
+  var pegId = parseInt(req.params.pegId, 10);
   var peg = req.body;
   
   if (!pegId) {
     res.status(400).end();
-    return;
   } else if (pegId !== peg.pegId) {
     res.status(409).end();
-    return;
+  } else {
+    GameOperator.lookForGame(gameId, (err, game) => {
+      if (err) {
+        res.status(404).json(err);
+      } else {
+        GameOperator.movePeg(game, peg, (err, game) => {
+          if (err) {
+            res.status(422).json(err);
+          } else {
+            res.status(303).location('/games/' + game.gameId).end();
+          }
+        });
+      }
+    });
   }
-  
-  GameOperator.lookForGame(gameId, (err, game) => {
-    if (err) {
-      res.status(404).json(err);
-    } else {
-      res.json(game);
-    }
-  });
 });
 
 module.exports = router;

@@ -4,8 +4,8 @@ function Peg(pegId, type, position) {
   this.position = position;
 };
 
-Peg.prototype.neutral = function() {
-  return this.type !== 'red' && this.type !== 'green';
+Peg.neutral = function(peg) {
+  return peg.type !== 'red' && peg.type !== 'green';
 };
 
 module.exports = Peg;
