@@ -4,7 +4,7 @@ Pegger - Node.js & Express
 Pegger is a 2-player turn-based strategy game that I invented one early morning while playing
 with my toddler daughter and her peg-hammering toy.
 
-This is a port of the original [Pegger Java]() web app to Node.js and Express. You can use it
+This is a port of the original [Pegger Java](http://pegger.technicalrex.com/) web app to Node.js and Express. You can use it
 to compare, contrast, and learn Node.js/Express or any of the other Pegger apps/tutorials.
 
 ## Getting Started
