@@ -5,9 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./api/index');
-var partials = require('./api/partials');
-var games = require('./api/games/gameroutes');
+var routes = require('./routes/index');
+var partials = require('./routes/partials');
+var games = require('./routes/games/gameroutes');
 
 var app = express();
 
