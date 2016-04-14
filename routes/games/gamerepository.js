@@ -2,11 +2,7 @@ var REPO = REPO || {};
 
 module.exports = {
   nextGameId: (callback) => {
-    if (!REPO['gid']) {
-      REPO['gid'] = 0;
-    }
-    REPO['gid']++;
-    callback(null, REPO['gid']);
+    callback(null, REPO.length);
   },
   
   save: (game, callback) => {
